@@ -1,0 +1,57 @@
+extends layout
+
+block header
+  script(src="javascripts/jquery-1.12.1.js")
+  script(src="javascripts/Chart.js")
+  script(src="javascripts/interact.js")
+  script(src="javascripts/annyang.js")
+
+block content
+  h1= title
+
+  p.
+    Please enter some text below.  After you hit update, the graph will be
+    updated the frequency of words in the document.  You may also specify
+    the range of words to graph.
+
+  form#localInput
+    input#freqMin(type="number", value=0)
+    label(style="display: inline-block") Min word index
+    br
+    input#freqMax(type="number", value=19)
+    label(style="display: inline-block") Max word index
+
+    br
+    label Bar sort order:
+      input(type="radio", name="sortOrder", value="alpha")
+      label Alphabetical
+      input(type="radio", name="sortOrder", value="freqA", checked)
+      label Word frequency A
+      input(type="radio", name="sortOrder", value="freqB", checked)
+      label Word frequency B
+
+    br
+    label Case-sensitive?:
+      input(type="radio", name="caseSensitive", value="yes")
+      label Yes
+      input(type="radio", name="caseSensitive", value="no", checked)
+      label No
+      
+    p
+    
+  div
+    p Enter text below (A):
+    textarea#userDataA(cols="50",rows="5")
+    p
+
+  div
+    p Enter text below (B):
+    textarea#userDataB(cols="50",rows="5")
+    p
+    
+  div
+    button#updateGraph(type="button") Update
+    p
+       
+  div
+    canvas(id="myChart", width="400", height="400")

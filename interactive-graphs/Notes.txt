@@ -1,0 +1,16 @@
+I've put together a solution for tutorial 9. I think that the first two tasks are very reasonable but the third one is likely to be difficult for the students. I anticipate that the use of two data sets will stump some people and they may end up trying to somehow consolidate the data into a single data set. Overall I don't think that will be too problematic though, it is the sorting by frequency in the different data sets that I think will cause the most problems. While it's nothing that they can't figure out given the material that you've taught them, I think the combination of the data strucutres and the functions and methods needed to manipulate them here is going to cause a lot of confusion. Maybe my expectations are too low but I think that not many will complete this part.
+
+Also, a few parts of the instructions I think could do with some clarification:
+
+"What files are loaded into the browser when the application is started?"
+to
+"What files are loaded into the browser when the a request for / is made?"
+
+"How do we get the value of the numerical range?"
+to
+"How do we get the value of the numerical range (word frequency)?"
+
+This one is an actual typo:
+"When "Yes" is selected, all of the words should be converted to lower case and then analyzed."
+to
+"When "No" is selected, all of the words should be converted to lower case and then analyzed."
