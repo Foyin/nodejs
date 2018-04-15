@@ -1,0 +1,33 @@
+extends layout
+
+block header
+block content
+  h1= title
+  div
+    p Fill out your info
+    form(method="post", action="/add")
+      div
+        label Name
+        div
+        input#name(type="text", name="name")
+      div
+      div
+        label City
+        div
+        input#country(type="text", name="city")
+      div
+      div
+        label Country
+        div
+        input#country(type="text", name="country")
+      div
+      div
+        label Birthday
+        div
+        input#birthday(type="text", name="birthday")
+      div
+      div
+        label Email
+        div
+        input#email(type="text", name="email")
+      button(type="submit") Submit
