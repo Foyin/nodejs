@@ -15,7 +15,6 @@ router.post('/add', function(req, res) {
                 email: req.body.email };
     state.push(obj);
     res.render('add', { title: 'Person just added', item: obj });
-    obj.body.name = "p";
 });
 
 router.get('/list', function(req, res) {
