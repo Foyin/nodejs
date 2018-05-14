@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  script(src='https://code.responsivevoice.org/responsivevoice.js')
+ 
+
+  p #{item.txt}
+    form(method="get", action="/")
+      div
+      button(type="submit") Back
+      div
+    button(onclick="responsiveVoice.speak('#{item.txt}');") Dictate

@@ -1,0 +1,15 @@
+extends layout
+
+block header
+block content
+  h1= title
+  
+  script(src='//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js')
+  div
+    p
+    form(method="post", action="/add")
+      div
+        p Enter text
+        textarea#text(type="text", name="txt", cols="50",rows="25")
+        p
+      button(type="submit") Submit

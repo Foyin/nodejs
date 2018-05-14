@@ -1,0 +1,17 @@
+extends layout
+  
+block content
+    h1= title
+
+    div
+      div
+      table
+        thead
+          th text
+        tbody
+          each item in items
+            tr
+              td #{item.txt}
+
+      form(method="get", action="/")
+        button(type="submit") Home
