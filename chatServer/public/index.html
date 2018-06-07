@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+		  document.addEventListener("DOMContentLoaded", function(){
+				 
+			    // Initialize instances:
+			    var siofu = new SocketIOFileUpload(socket);
+			 
+			    // Configure the three ways that SocketIOFileUpload can read files:
+			    document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
+			    siofu.listenOnInput(document.getElementById("upload_input"));
+			    siofu.listenOnDrop(document.getElementById("file_drop"));
+			 
+			    // Do something on upload progress:
+			    siofu.addEventListener("progress", function(event){
+				var percent = event.bytesLoaded / event.file.size * 100;
+				console.log("File is", percent.toFixed(2), "percent loaded");
+			    });
+			 
+			    // Do something when a file is uploaded:
+			    siofu.addEventListener("complete", function(event){
+				console.log(event.success);
+				console.log(event.file);
+			    });
+				 
+			}, false);
+                </script>
+
+
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <ul class="pages">
+    <li class="chat page">
+        <div class="grid">
+              <div class="options">
+      		 <tr><button class="btn" id="Username" type="button"></button></tr>
+                 <tr><button class="btn" id="uploadBtn" type="button">Uploads</button></tr>
+                 <tr><button class="btn" id="downloadBtn" type="button">Dowloads</button></tr>
+                 <tr><button class="btn" id="vBtn" type="button">VideoChat</button></tr>
+                 <tr><button class="btn" id="WBtn" type="button">Whiteboard</button></tr>
+                 <tr><button class="btn" id="nMode" data-text-swap="Light Mode" type="button">Night Mode</button>
+                  
+                 </tr>
+              </div>
+	      <div class="chatArea">
+		<ul class="messages"></ul>
+                <input class="inputMessage" placeholder="Type here..."/>
+	      </div>
+	      
+              <div class="sidePanel" id="uploadPanel"> 
+                 upload
+                  
+                <p><button id="upload_btn">Prompt for File</button></p>
+		<p><label>Choose File: <input type="file" id="upload_input"/></label></p>
+		<div id="file_drop" dropzone="copy" title="drop files for upload">Drop File</div>
+
+              </div>
+               
+              <div class="sidePanel" id="downloadPanel"> 
+                 download
+              </div>
+
+              <div class="sidePanel" id="vcPanel"> 
+                 voice chat
+              </div>
+
+              <div class="sidePanel" id="wbPanel"> 
+              
+              
+		  
+              </div>
+
+	      
+
+              
+        </div>
+    </li>
+    <li class="login page">
+      <div class="form">
+	<h3 class="title">Login</h3>
+	<input class="usernameInput" type="text" placeholder="Username" maxlength="14" />
+      </div>
+    </li>
+	
+  </ul>
+
+
+  <script src="/siofu/client.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+  <script src="libraries/p5.js"></script>
+  <script src="libraries/p5.dom.js"></script>
+  <script src="/paint.js"></script>
+
+
+</body>
+</html>
