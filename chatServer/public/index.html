@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <ul class="pages">
+    <li class="chat page">
+        <div class="grid">
+              <div class="options">
+      		 <tr><button class="btn" id="userBtn" type="button"></button></tr>
+                 <tr><button class="btn" id="uploadBtn" type="button">Uploads</button></tr>
+                 <tr><button class="btn" id="downloadBtn" type="button">Dowloads</button></tr>
+                 <tr><button class="btn" id="vBtn" type="button">VideoChat</button></tr>
+                 <tr><button class="btn" id="WBtn" type="button">Whiteboard</button></tr>
+                 <tr><button class="btn" id="nMode" data-text-swap="Light Mode" type="button">Night Mode</button>
+                  
+                 </tr>
+              </div>
+	      <div class="chatArea">
+		<ul class="messages"></ul>
+                <input class="inputMessage" placeholder="Type here..."/>
+	      </div>
+	      
+              <div class="sidePanel" id="uploadPanel"> 
+                 upload
+                  
+                <form action="/file-upload" class="dropzone">
+		  <div class="fallback">
+		    <input name="file" type="file" multiple />
+		  </div>
+		</form>
+              </div>
+               
+
+              <div class="sidePanel" id="downloadPanel"> 
+                 download
+              </div>
+
+              <div class="sidePanel" id="vcPanel"> 
+                 voice chat
+              </div>
+
+              <div class="sidePanel" id="wbPanel"> 
+              
+  
+              </div>
+
+	      
+              <div class="sidePanel" id="userPanel"> 
+      		 <button id="mic" type="button"></button>
+              </div>
+
+              
+        </div>
+    </li>
+    <li class="login page">
+      <div class="form">
+	<h3 class="title">Login</h3>
+	<input class="usernameInput" type="text" placeholder=""  maxlength="14" />
+      </div>
+    </li>
+	
+  </ul>
+
+  <!--<script src="brickBreaker/brick.js" type="text/javascript"></script>
+  <script src="brickBreaker/board.js" type="text/javascript"></script>
+  <script src="brickBreaker/ball.js" type="text/javascript"></script>
+  <script src="brickBreaker/drop.js" type="text/javascript"></script>
+  <script src="/siofu/client.js"></script>
+  <script src="brickBreaker/sketch.js" type="text/javascript"></script> -->
+  <script src="libraries/scenemanager.js"></script>
+  <script src="libraries/responsivevoice.js"></script>
+  <script src="libraries/annyang.min.js"></script>
+  <script src="libraries/annyang.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+  <script src="libraries/p5.js"></script>
+  <script src="libraries/p5.dom.js"></script>
+  <script src="/paint.js"></script>
+
+
+
+</body>
+</html>
