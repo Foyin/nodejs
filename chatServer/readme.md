@@ -13,9 +13,15 @@ Say name of panels to change panels
 Click grey button to switch on microphone listening
 
 You would need to download and install the following tools
+
 -nodejs
+
 -npm
+
 -Express
+
 -p5js
+
 -annyangjs (extends webkitspeechrecognition)
+
 -responsivevoicejs
