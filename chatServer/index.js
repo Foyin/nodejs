@@ -21,6 +21,7 @@ var seconds = 900000;
 server.listen(port, () => {
   console.log('Server listening at port %d', port);
 
+
 });
 /////////////////////////////////////////////////////////////
 
@@ -30,12 +31,6 @@ var SocketIOFileUpload = require('socketio-file-upload');
  
 // Make your Express server:
 app.use(SocketIOFileUpload.router);
- 
-
-
-///////////////////////////////////////////////////////
-
-// Routing
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -85,7 +80,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
+/*
 function uploadText(req, res) {
     if (req.file) {
       	       req.session.files.push(req.file);
@@ -98,7 +93,7 @@ function uploadText(req, res) {
 
                } 
   }
-
+*/
 
 
 // Chatroom
@@ -128,6 +123,7 @@ io.on('connection', (socket) => {
     socket.emit('login', {
       numUsers: numUsers
     });
+    
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', {
       username: socket.username,
@@ -166,7 +162,7 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('drawing', data)
   });
   
-
+ 
   
   /* Make an instance of SocketIOFileUpload and listen on this socket:
     var uploader = new SocketIOFileUpload();

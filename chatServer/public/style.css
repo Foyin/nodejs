@@ -74,7 +74,8 @@ ul {
 /* Login Page */
 
 .login.page {
-  background-color: #000;
+  background-color: powderblue;
+  cursor: pointer;
 }
 
 .login.page .form {
@@ -109,6 +110,7 @@ ul {
 .login.page .title, .login.page .usernameInput {
   color: #fff;
   font-weight: 100;
+  color: #000080;
 }
 
 /* Chat page */
@@ -120,7 +122,8 @@ ul {
 /* Options */
 .options{
   background-color: powderblue;
-  height: 10vw;
+  height: 20vh;
+  width: 100vw;
   grid-column: span 2 / auto;
 }
 /* Font */
@@ -143,12 +146,13 @@ ul {
 /* Messages */
 
 .chatArea {
+  position: relative;
   border: 10px solid powderblue;
   padding-bottom: 60px;
   width: 100%;
   max-width: 50vw;
   grid-rows: 900px 5em auto;
-  height: 42vw;
+  height: 80vh;
 }
 
 .messages {
@@ -191,7 +195,7 @@ ul {
   color: DodgerBlue; 
   cursor: pointer;
   font-size: 16px;
-  height: 10vw;
+  height: 20vh;
   width: 16vw;
   line-height: 23px;
   padding: 15px 32px;
@@ -200,9 +204,14 @@ ul {
   
   border-color: rgb(92, 176, 226);
   box-shadow: inset 0 0 7px rgb(224, 239, 249), 0 1px 1px rgb(163, 205, 229);
+  margin-left: 0.1vw;
+  margin-right: 0.1vw;
 }
 
-
+#mic{
+  height: 10%;
+  width: 100%;
+}
 
 
 /**
@@ -216,15 +225,10 @@ ul {
   width: 100%;
   max-width: 50vw;
   left: 50%;
-  top:10vw ;
+  top:20vh ;
   border: 10px solid powderblue;
-  height: 42vw;
+  height: 80vh;
  
-}
-
-#sketch{
-  
-
 }
 
 #upload{

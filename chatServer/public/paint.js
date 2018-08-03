@@ -9,7 +9,6 @@ var r0, g0, b0;
 var rSlider, gSlider, bSlider;
 var sliderValue;
 
-
 function setup() {
   var canvas = createCanvas(800, 800);
   canvas.parent('wbPanel');
@@ -79,7 +78,7 @@ function setup() {
   resetThicknessBtn.style('width', btnSize);
   resetThicknessBtn.style('height', btnSize);
   
-  // We make a named event called 'mouse' and write an
+  // We make a named event called 'drawing' and write an
   // anonymous callback function
   socket.on('drawing',
     
@@ -120,15 +119,18 @@ function mouseReleased(){
 }
 
 function incThickness(){
-    strokeW++;
+    strokeW = strokeW + 2;
 }
 
 function decThickness(){
+    if(strokeW <= 2){
+       strokeW++;
+    }
     strokeW--;
 }
 
 function resetThickness(){
-    strokeW = 1;
+    strokeW = 2;
 }
 
 function sendmouse(xpos, ypos, pxpos, pypos, currentR, currentG, currentB, currentStrweight) {

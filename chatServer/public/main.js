@@ -1,4 +1,5 @@
-$(function() {
+$(function() { 
+
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
   var COLORS = [
@@ -6,8 +7,6 @@ $(function() {
     '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
     '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
   ];
-
-
 
   // Initialize variables
   var $window = $(window);
@@ -24,10 +23,11 @@ $(function() {
   var typing = false;
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
-
+  var enterKey = jQuery.Event("keydown");
+  enterKey.which = 13;
 
   var socket = io();
-  
+
 
   const addParticipantsMessage = (data) => {
     var message = '';
@@ -37,6 +37,19 @@ $(function() {
       message += "there are " + data.numUsers + " participants";
     }
     log(message);
+   
+  }
+
+  const addOnlineuser = (data) => {
+    var d = Date();
+    var date = d.split(" ");
+    $("#userPanel").append("<ul><li>"+ data.username +" Joined at "+ date[4] +"</li></ul>")
+  }
+
+  const removeOnlineuser = (data) => {
+    var d = Date();
+    var date = d.split(" "); 
+    $("#userPanel li").remove(":contains('" + data.username + "')")
   }
 
   // Sets the client's username
@@ -44,7 +57,8 @@ $(function() {
     username = cleanInput($usernameInput.val().trim());
     // If the username is valid
     if (username) {
-      $("#Username").text(username);
+      responsiveVoice.speak("Welcome");
+      $("#userBtn").text(username);
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off('click');
@@ -230,15 +244,23 @@ $(function() {
   
 
   //button functions
+  //user
+  $(".btn").click(function(){
+     if(this.id === "userBtn"){  
+         $(".sidePanel").hide();
+         $("#userPanel").show();
+     }     
+  });
+  
+  //upload
   $(".btn").click(function(){
      if(this.id === "uploadBtn"){  
          $(".sidePanel").hide();
          $("#uploadPanel").show();
-     }
-        
+     }     
   });
 
-
+  //download
   $(".btn").click(function(){
      if(this.id === "downloadBtn"){  
          $(".sidePanel").hide();
@@ -246,6 +268,7 @@ $(function() {
      }
   });
 
+  //video chat
   $(".btn").click(function(){
      if(this.id === "vBtn"){  
          $(".sidePanel").hide();
@@ -253,6 +276,7 @@ $(function() {
      }
   });
 
+  //white board
   $(".btn").click(function(){
      if(this.id === "WBtn"){  
          $(".sidePanel").hide();
@@ -352,6 +376,92 @@ $(function() {
      }
   });
 
+  //Voice controls
+  if (annyang) {
+    annyang.debug();  
+    $("#mic").css("background-color", "grey");
+    var helloCmd = {
+        'hello': function() {
+        responsiveVoice.speak("hi");
+      }
+    };
+  
+    var userCmd = { 
+       'main': function() {
+        $(".sidePanel").hide();
+        $("#userPanel").show();
+      }
+    };
+
+    var uploadCmd = { 
+       'upload': function() {
+        $(".sidePanel").hide();
+        $("#uploadPanel").show();
+      }
+    };
+
+    var downloadCmd = { 
+       'download': function() {
+        $(".sidePanel").hide();
+        $("#downloadPanel").show(); 
+      }
+    };
+
+    var videochatCmd = { 
+       'video': function() {
+        $(".sidePanel").hide();
+        $("#vcPanel").show();
+      }
+    };
+
+    var whiteboardCmd = { 
+       'whiteboard': function() {
+        $(".sidePanel").hide();
+        $("#wbPanel").show();
+      }
+    };
+
+    var nightmodeCmd = {  
+       'dark': function() {
+        nightMode2();
+      }
+    };
+
+    var daymodeCmd = {  
+       'light': function() {
+        dayMode();
+      }
+    };
+
+    var state = 0;
+    $("#mic").click(function(){
+      if(state === 0){
+         //responsiveVoice.speak("microphone on");
+         annyang.start({continuous: false });
+         $("#mic").css("background-color", "red");
+         state = 1;
+      }
+      else{
+         annyang.pause();
+         responsiveVoice.speak("microphone off");
+         $("#mic").css("background-color", "grey");
+         state = 0;
+      }
+    });
+
+    annyang.addCallback('result', function(phrases) {
+       $(".inputMessage").val(phrases[0]);
+        });
+
+    annyang.addCommands(helloCmd);
+    annyang.addCommands(userCmd);
+    annyang.addCommands(uploadCmd);
+    annyang.addCommands(downloadCmd);
+    annyang.addCommands(videochatCmd);
+    annyang.addCommands(whiteboardCmd);
+    annyang.addCommands(nightmodeCmd);
+    annyang.addCommands(daymodeCmd);
+  }  
 
   // Socket events
 
@@ -365,8 +475,6 @@ $(function() {
     });
     addParticipantsMessage(data);
   });
-
-
   
   // Whenever the server emits 'new message', update the chat body
   socket.on('new message', (data) => {
@@ -375,13 +483,20 @@ $(function() {
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on('user joined', (data) => {
-    log(data.username + ' joined');
+    var d = Date();
+    var date = d.split(" ");
+    log(data.username + ' joined at ' +date[4]);
+    addOnlineuser(data);
     addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on('user left', (data) => {
-    log(data.username + ' left');
+    var d = Date();
+    var date = d.split(" ");
+    log(data.username + ' left at ' +date[4]);
+    removeOnlineuser(data);
+     
     addParticipantsMessage(data);
     removeChatTyping(data);
   });
@@ -410,5 +525,32 @@ $(function() {
   socket.on('reconnect_error', () => {
     log('attempt to reconnect has failed');
   });
+/*
+  document.addEventListener("DOMContentLoaded", function(){
+ 
+    // Initialize instances:
+    var socket = io.connect();
+    var siofu = new SocketIOFileUpload(socket);
+ 
+    // Configure the three ways that SocketIOFileUpload can read files:
+    document.getElementById("upload_btn").addEventListener("click", siofu.prompt, false);
+    siofu.listenOnInput(document.getElementById("upload_input"));
+    siofu.listenOnDrop(document.getElementById("file_drop"), function(event){
+        $("#file_drop").append("<p>" + event.file + "</p>");
+    });
 
+    // Do something on upload progress:
+    siofu.addEventListener("progress", function(event){
+        var percent = event.bytesLoaded / event.file.size * 100;
+        console.log("File is", percent.toFixed(2), "percent loaded");
+    });
+ 
+    // Do something when a file is uploaded:
+    siofu.addEventListener("complete", function(event){
+        console.log(event.success);
+        console.log(event.file);
+    });
+ 
+}, false);  
+*/
 });
