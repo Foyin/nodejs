@@ -1,7 +1,7 @@
 //This code uses prints out information from arduinos
 // serial port using serialport.js 
 
-var serialport = require("serialport");// version 4
+var serialport = require("serialport");// version 4.0.7
 var portName = "/dev/ttyACM0"; //specify your port name
 
 var myPort = new serialport(portName, {
