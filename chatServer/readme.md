@@ -25,3 +25,8 @@ You would need to download and install the following tools
 -annyangjs (extends webkitspeechrecognition)
 
 -responsivevoicejs
+
+
+After getting all required files, to run type enter chatSever directory and use the command:
+"node index.js" to run with HTTP
+"node index-https.js" to run with HTTPS with a self signed key
