@@ -13,6 +13,7 @@ Click grey button to switch on microphone listening
 You would need to download and install the following tools
 
 -[nodejs](https://nodejs.org/en/)
+-[jQuery](https://jquery.com/)
 -[npm](https://www.npmjs.com/)
 -[p5js](https://p5js.org/)
 -[annyangjs](https://www.talater.com/annyang/) (extends [webkitspeechrecognition](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API))
