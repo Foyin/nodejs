@@ -3,7 +3,8 @@
 #### Purpose: 
 Chat app with shared drawing board and other upcoming features. Also has voice
 controls features that enable you to type with voice, change panels and display mode
-(works on google chrome). Also has voice output capabilities.
+(works on google chrome). Also has voice output capabilities. More features coming
+soon
 
 #### Notes:
 Say "dark" for night mode and "light" for light mode
