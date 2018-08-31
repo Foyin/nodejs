@@ -1,6 +1,7 @@
 // HTML escaping from http://stackoverflow.com/a/13510502
 /*
-jquery version
+This is a fix for a cross-site scripting attack when using jquery
+
 Problem: takes a raw string and puts it in between tags (this is bad) so it gets interpreted by the browser
 Solution: use an escape function to transform the raw string into a sanitized version
 Include the following in your code to escape html tags 
