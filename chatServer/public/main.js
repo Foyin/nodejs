@@ -117,12 +117,14 @@ $(function() {
     addMessageElement($messageDiv, options);
   }
 
-  // Adds the visual chat typing message
+  /*
+  // Adds the visual chat typing message (lets you know when someone is typing)
   const addChatTyping = (data) => {
     data.typing = true;
     data.message = 'is typing';
     addChatMessage(data);
   }
+  */
 
   // Removes the visual chat typing message
   const removeChatTyping = (data) => {
