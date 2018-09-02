@@ -15,7 +15,7 @@ Click grey button to switch on microphone listening
 You would need to download and install the following tools
 Say "hello" and app will respond
 
-- [nodejs](https://nodejs.org/en/)
+- [nodejs(version 5 - 9)](https://nodejs.org/en/)
 - [jQuery](https://jquery.com/)
 - [npm](https://www.npmjs.com/)
 - [p5js](https://p5js.org/)
