@@ -1,4 +1,4 @@
-//This code uses prints out information from arduinos
+//This code uses prints out information from
 // serial port using serialport.js 
 
 var serialport = require("serialport");// version 4.0.7
