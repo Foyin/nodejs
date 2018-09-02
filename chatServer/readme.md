@@ -24,8 +24,10 @@ Say "hello" and app will respond
 
 
 After getting all required files, to run type enter chatSever directory and use the command:
-"node index.js" to run with HTTP
-"node index-https.js" to run with HTTPS with a self signed key
+
+`node index.js` to run with HTTP
+
+`node index-https.js` to run with HTTPS with a self signed key
 
 ![loginpage](https://user-images.githubusercontent.com/15314851/44919887-8c4efe00-ad0c-11e8-92dd-bf3e3871af5e.png)
 
