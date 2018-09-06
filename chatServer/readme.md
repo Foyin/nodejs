@@ -22,6 +22,7 @@ Say "hello" and app will respond
 - [annyangjs](https://www.talater.com/annyang/) (extends [webkitspeechrecognition](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API))
 - [responsivevoicejs](https://responsivevoice.org/)
 
+This app was designed to be used on a touch screen tablet (thats why the butons are so big)
 
 After getting all required files, to run type enter chatSever directory and use the command:
 
