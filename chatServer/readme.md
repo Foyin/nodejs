@@ -30,7 +30,7 @@ After getting all required files, to run type enter chatSever directory and use 
 `node index-https.js` to run with HTTPS with a self signed key
 
 You can chat with anyone on the same network (or WIFI) as you, just use command `ifconfig` to get the ip address that your
-router gave to localhost then go to `<IPAddress>:<PortNumber>` example: `192.168.0.11:5000`
+router gave to the computer that is running the server(localhost) then go to `<IPAddress>:<PortNumber>` example: `192.168.0.11:5000`
 
 ![loginpage](https://user-images.githubusercontent.com/15314851/44919887-8c4efe00-ad0c-11e8-92dd-bf3e3871af5e.png)
 
