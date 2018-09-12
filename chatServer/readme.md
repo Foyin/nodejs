@@ -40,3 +40,13 @@ router gave to the computer that is running the server(localhost) then go to `<I
 ![chatboard](https://user-images.githubusercontent.com/15314851/44919929-a2f55500-ad0c-11e8-8432-9609680ae1aa.png)
 
 ![chatmic](https://user-images.githubusercontent.com/15314851/44919934-a7ba0900-ad0c-11e8-9f96-2a661fa7e9c5.png)
+
+
+### New gui front-end design template idea, will upload code later still tweaking
+
+![screenshot from 2018-09-11 20-38-20](https://user-images.githubusercontent.com/15314851/45395276-675b6480-b603-11e8-9fae-440a5ddf1b1f.png)
+
+![screenshot from 2018-09-11 20-38-30](https://user-images.githubusercontent.com/15314851/45395285-7215f980-b603-11e8-9e35-90ec51cbcd61.png)
+
+![screenshot from 2018-09-11 20-42-49](https://user-images.githubusercontent.com/15314851/45395293-7cd08e80-b603-11e8-8fd5-b6731311a801.png)
+
