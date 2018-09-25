@@ -1,4 +1,5 @@
 $(function() { 
+  
   // Initialize variables
   var $window = $(window);
   var $button = $('button');
@@ -10,7 +11,7 @@ $(function() {
   var $mainPage = $('.main.page');
   var reposjson;
   var enterKey = jQuery.Event("keydown");
-  //enterKey.which = 13;
+  //enterKey.which = 13; //Enter key
 
   $mainPage.show();
   $searchField.focus();
@@ -23,13 +24,25 @@ $(function() {
   }
   ,1000);
 
+  //Remove duplicates from favourites
+  setInterval(function(){
+    $.each($("#favTable tr"), function(i, item) {
+        var currIndex = $("#favTable tr").eq(i);
+        var matchText = currIndex.children("td").first().text();
+        $(this).nextAll().each(function(i, inItem) {
+            if(matchText===$(this).children("td").first().text()) {
+                $(this).remove();
+            }
+        });
+    });
+  },1000);
+
   //Search button functions, click anytime to refresh search
   $searchButton.click(function(){ 
 	  $(".repotableHead").remove();
 	  $("#repoTable .rows").remove();
 	  $repoTable.append(" <tr class=repotableHead><th>Name</th><th>Language</th> <th>Score</th><th> </th></tr>");
-	  var numEntries = 10;
-          var tagsjson = [];
+	  var numEntries = 15;
 	  $.when(
 	    $.getJSON("https://api.github.com/search/repositories?q=" + $searchField.val() + "&sort=stars&order=desc", function(data) {
 		reposjson = data;
@@ -50,15 +63,15 @@ $(function() {
 			    var tableID = $(this).parents('tr:first').parent().attr('id') + "";
 			    if(tableID === "repoTable"){
 
-				$favTable.append($parentRowID);
-			    	$(this).html("<u>Remove</u>");
+				$favTable.append($parentRowID.clone(true, true));
+			    	$("#favTable "+"#"+$(this).parents('tr:first').attr('id')+ " .addFav").html("<u>Remove</u>");
 			    }
 			    else{
-				$parentRowID.remove()
+				$("#favTable "+"#"+$(this).parents('tr:first').attr('id')).remove();
 			    }
 
 
-			})
+			});
 
 	    }
 	    else {
@@ -66,7 +79,5 @@ $(function() {
 	    }
 	    
 	   });
-	  });
-
-
+  });
 });
