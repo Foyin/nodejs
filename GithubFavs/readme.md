@@ -1,4 +1,4 @@
-# Github Favourates App
+# Github Favourites App
 
 App to find github repositories. The program returns fifteen of the closest results and removes duplicates from list of favourites.
 Click search button to refresh search. 
