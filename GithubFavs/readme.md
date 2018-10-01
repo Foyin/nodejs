@@ -1,6 +1,6 @@
 # Github Favourites App
 
-App to find github repositories. The program returns fifteen of the closest results and removes duplicates from list of favourites.
+App to find github repositories. The program returns fifteen of the closest results and removes duplicates from list of favourites. You can add your favourite repositories to a list or remove them from it.
 Click search button to refresh search. 
 
 To run use command `node index.js`
