@@ -1,6 +1,6 @@
 # Student Score/info tracker
 
-Web app that organises and diaplays student info. Front-end web design practice.
+Web app that reads student information from a JSON file and organises and displays student info. Front-end web design practice.
 
 Also click highlighted student item to expand and get more information.
 
