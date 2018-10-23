@@ -12,5 +12,7 @@ To run use command `node index.js`
 - [Docs on how to create a personal access token to make request to the Github API](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
 
 # Layout
+The gifs framerate is not the best, trust me the app is smooth
+
 ![githubapp2](https://user-images.githubusercontent.com/15314851/47331172-1189cb80-d649-11e8-8bbe-17ea9af30270.gif)
 
