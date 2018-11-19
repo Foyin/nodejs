@@ -24,6 +24,7 @@ $(function() {
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
   var enterKey = jQuery.Event("keydown");
+  var userAgent = window.navigator.userAgent;
   enterKey.which = 13;
 
   var socket = io();
@@ -60,6 +61,10 @@ $(function() {
       responsiveVoice.speak("Welcome");
       $("#userBtn").text(username);
       $loginPage.fadeOut();
+      if(userAgent.includes("iPhone") || userAgent.includes("iPad") || userAgent.includes("Android")){
+        console.log("iphone connected");
+        alert("Works Best In Landscape");
+      }
       $chatPage.show();
       $loginPage.off('click');
       $currentInput = $inputMessage.focus();
