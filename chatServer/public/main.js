@@ -62,8 +62,7 @@ $(function() {
       $("#userBtn").text(username);
       $loginPage.fadeOut();
       if(userAgent.includes("iPhone") || userAgent.includes("iPad") || userAgent.includes("Android")){
-        console.log("iphone connected");
-        alert("Works Best In Landscape");
+        alert("Works Best In Landscape Mode");
       }
       $chatPage.show();
       $loginPage.off('click');
